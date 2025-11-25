@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorização de Viagem para Criança</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="container">
+        <header>
+            <div class="header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    <path d="M14.05 2a9 9 0 0 1 8 7.94"></path>
+                    <path d="M14.05 6A5 5 0 0 1 18 10"></path>
+                </svg>
+            </div>
+            <h1>Autorização de Viagem</h1>
+            <p>Criança acompanhada de pessoa maior - Lei 8069/90 (ECA)</p>
+        </header>
+
+        <form id="autorizacaoForm">
+            <!-- Dados do Responsável -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2>Dados do Responsável</h2>
+                </div>
+                <div class="form-group full-width">
+                    <label for="nomeResponsavel">Nome Completo</label>
+                    <input type="text" id="nomeResponsavel" name="nomeResponsavel" placeholder="Nome completo do genitor/genitora/responsável" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="identidadeResponsavel">Nº da Identidade</label>
+                        <input type="text" id="identidadeResponsavel" name="identidadeResponsavel" placeholder="00.000.000-0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orgaoExpedidor">Órgão Expedidor</label>
+                        <input type="text" id="orgaoExpedidor" name="orgaoExpedidor" placeholder="SSP/SP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpfResponsavel">CPF</label>
+                        <input type="text" id="cpfResponsavel" name="cpfResponsavel" placeholder="000.000.000-00" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group flex-3">
+                        <label for="endereco">Endereço (Rua/Av.)</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." required>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Nº" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="Apto, Bloco...">
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group flex-2">
+                        <label for="cidadeResponsavel">Cidade</label>
+                        <input type="text" id="cidadeResponsavel" name="cidadeResponsavel" placeholder="Cidade" required>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="ufResponsavel">UF</label>
+                        <select id="ufResponsavel" name="ufResponsavel" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="telefones">Telefones</label>
+                    <input type="text" id="telefones" name="telefones" placeholder="(00) 00000-0000, (00) 0000-0000" required>
+                </div>
+            </div>
+
+            <!-- Dados da Criança -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2>Dados da Criança</h2>
+                </div>
+                <div class="form-group full-width">
+                    <label for="nomeCrianca">Nome Completo da Criança</label>
+                    <input type="text" id="nomeCrianca" name="nomeCrianca" placeholder="Nome completo do filho(a)" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="diaNascimento">Dia</label>
+                        <input type="number" id="diaNascimento" name="diaNascimento" min="1" max="31" placeholder="DD" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mesNascimento">Mês</label>
+                        <input type="number" id="mesNascimento" name="mesNascimento" min="1" max="12" placeholder="MM" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="anoNascimento">Ano</label>
+                        <input type="number" id="anoNascimento" name="anoNascimento" min="2000" max="2025" placeholder="AAAA" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados da Viagem -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2>Destino da Viagem</h2>
+                </div>
+                <div class="form-row">
+                    <div class="form-group flex-3">
+                        <label for="cidadeDestino">Cidade de Destino</label>
+                        <input type="text" id="cidadeDestino" name="cidadeDestino" placeholder="Cidade de destino" required>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label for="ufDestino">UF</label>
+                        <select id="ufDestino" name="ufDestino" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados do Acompanhante -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2>Dados do Acompanhante</h2>
+                </div>
+                <div class="form-group full-width">
+                    <label for="nomeAcompanhante">Nome Completo do Acompanhante</label>
+                    <input type="text" id="nomeAcompanhante" name="nomeAcompanhante" placeholder="Nome completo da pessoa que acompanhará a criança" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="identidadeAcompanhante">Nº da Identidade</label>
+                        <input type="text" id="identidadeAcompanhante" name="identidadeAcompanhante" placeholder="00.000.000-0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orgaoExpedidorAcompanhante">Órgão Expedidor</label>
+                        <input type="text" id="orgaoExpedidorAcompanhante" name="orgaoExpedidorAcompanhante" placeholder="SSP/SP" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tipo de Autorização -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2>Tipo de Autorização</h2>
+                </div>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="tipoViagem" value="ida" required>
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Válida apenas para ida</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="tipoViagem" value="idaVolta" required>
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Válida para ida e volta</span>
+                    </label>
+                </div>
+
+                <h3>Validade da Autorização</h3>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="tipoValidade" value="data" required>
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Válida até uma data específica</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="tipoValidade" value="meses" required>
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">Válida por período em meses</span>
+                    </label>
+                </div>
+
+                <div id="validadeDataContainer" class="conditional-container" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="diaValidade">Dia</label>
+                            <input type="number" id="diaValidade" name="diaValidade" min="1" max="31" placeholder="DD">
+                        </div>
+                        <div class="form-group">
+                            <label for="mesValidade">Mês</label>
+                            <input type="number" id="mesValidade" name="mesValidade" min="1" max="12" placeholder="MM">
+                        </div>
+                        <div class="form-group">
+                            <label for="anoValidade">Ano</label>
+                            <input type="number" id="anoValidade" name="anoValidade" min="2024" max="2030" placeholder="AAAA">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="validadeMesesContainer" class="conditional-container" style="display: none;">
+                    <div class="form-group">
+                        <label for="quantidadeMeses">Quantidade de Meses</label>
+                        <input type="number" id="quantidadeMeses" name="quantidadeMeses" min="1" max="24" placeholder="Ex: 6">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local e Data -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">06</span>
+                    <h2>Local e Data do Documento</h2>
+                </div>
+                <div class="form-row">
+                    <div class="form-group flex-2">
+                        <label for="cidadeDocumento">Cidade</label>
+                        <input type="text" id="cidadeDocumento" name="cidadeDocumento" placeholder="Cidade onde está sendo assinado" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="diaDocumento">Dia</label>
+                        <input type="number" id="diaDocumento" name="diaDocumento" min="1" max="31" placeholder="DD" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mesDocumento">Mês</label>
+                        <select id="mesDocumento" name="mesDocumento" required>
+                            <option value="">Mês</option>
+                            <option value="janeiro">Janeiro</option>
+                            <option value="fevereiro">Fevereiro</option>
+                            <option value="março">Março</option>
+                            <option value="abril">Abril</option>
+                            <option value="maio">Maio</option>
+                            <option value="junho">Junho</option>
+                            <option value="julho">Julho</option>
+                            <option value="agosto">Agosto</option>
+                            <option value="setembro">Setembro</option>
+                            <option value="outubro">Outubro</option>
+                            <option value="novembro">Novembro</option>
+                            <option value="dezembro">Dezembro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="anoDocumento">Ano</label>
+                        <input type="number" id="anoDocumento" name="anoDocumento" min="2024" max="2030" placeholder="AAAA" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aviso Importante -->
+            <div class="warning-box">
+                <div class="warning-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <div class="warning-content">
+                    <strong>ATENÇÃO:</strong>
+                    <ul>
+                        <li>Apresentar Certidão de Nascimento da criança ou Documento de Identidade com foto.</li>
+                        <li>Reconhecer firma por semelhança ou autenticidade.</li>
+                        <li>Conforme artigo 83, § 1º, b, 2, da Lei 8069/90 (ECA).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="form-section buttons-section">
+                <div class="button-group">
+                    <button type="button" id="gerarPdfBtn" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Gerar PDF
+                    </button>
+                    <button type="button" id="salvarJsonBtn" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Salvar Dados
+                    </button>
+                    <button type="button" id="restaurarDadosBtn" class="btn btn-tertiary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="1 4 1 10 7 10"></polyline>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                        </svg>
+                        Restaurar
+                    </button>
+                    <button type="button" id="reiniciarFormBtn" class="btn btn-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Reiniciar
+                    </button>
+                    <input type="file" id="arquivoJson" accept=".json" style="display: none;">
+                </div>
+            </div>
+        </form>
+
+        <footer>
+            <p>Autorização conforme Lei 8069/90 - Estatuto da Criança e do Adolescente (ECA)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
